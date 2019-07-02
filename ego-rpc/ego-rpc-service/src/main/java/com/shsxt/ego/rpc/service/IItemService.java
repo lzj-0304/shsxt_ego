@@ -1,5 +1,6 @@
 package com.shsxt.ego.rpc.service;
 
+import com.shsxt.ego.common.model.EgoResult;
 import com.shsxt.ego.rpc.query.ItemQuery;
 import com.shsxt.ego.common.model.PageResult;
 import com.shsxt.ego.rpc.pojo.TbItem;
@@ -7,4 +8,18 @@ import com.shsxt.ego.rpc.pojo.TbItem;
 public interface IItemService {
 
     public PageResult<TbItem> queryItemsListByParams(ItemQuery itemQuery);
+
+    public EgoResult updateItemStatus(TbItem item);
+
+
+    /**
+     * 商品状态更新
+     * @param ids   待更新商品id
+     * @param type  更新类型
+     * @return
+     */
+    public  EgoResult updateItemStatusBatch(Long[] ids,int type);
+
+
+    public EgoResult deleteItemBatch(Long[] ids);
 }

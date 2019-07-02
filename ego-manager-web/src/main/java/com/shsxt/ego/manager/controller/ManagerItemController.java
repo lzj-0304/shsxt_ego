@@ -1,5 +1,6 @@
 package com.shsxt.ego.manager.controller;
 
+import com.shsxt.ego.common.model.EgoResult;
 import com.shsxt.ego.common.model.PageResult;
 import com.shsxt.ego.manager.service.IManagerItemService;
 import com.shsxt.ego.rpc.pojo.TbItem;
@@ -21,5 +22,36 @@ public class ManagerItemController {
     @ResponseBody
     public PageResult<TbItem> itemList(ItemQuery itemQuery){
         return managerItemService.itemList(itemQuery);
+    }
+
+
+    /**
+     * 商品上架
+     * @param ids
+     * @return
+     */
+    @RequestMapping("item/reshelf")
+    @ResponseBody
+    public EgoResult reshelf(Long[] ids){
+        return managerItemService.reshelf(ids);
+    }
+
+
+    /**
+     * 商品下架
+     * @param ids
+     * @return
+     */
+    @RequestMapping("item/instock")
+    @ResponseBody
+    public EgoResult instock(Long[] ids){
+
+        return managerItemService.instock(ids);
+    }
+
+    @RequestMapping("item/delete")
+    @ResponseBody
+    public EgoResult delete(Long[] ids){
+        return managerItemService.deleteItemBatch(ids);
     }
 }

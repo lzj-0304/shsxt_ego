@@ -20,6 +20,8 @@
             <artifactId>junit</artifactId>
         </dependency>
 
+
+
         <dependency>
             <groupId>com.shsxt</groupId>
             <artifactId>ego-rpc-pojo</artifactId>
